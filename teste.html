@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario teste</title>
+</head>
+<body>
+
+<h1>Formúlario de Idade</h1>
+
+
+
+
+
+<form id="meuFormulario">
+
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome" required="[a-z]">
+
+    <label for="idade">Idade</label>
+    <input type="number" id="idade" name="idade" required="[0-9]">
+
+    <label for="email">E-mail</label>
+    <input type="email" id="email" name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$">
+
+    <label for="mensagem">Mensagem:</label>
+
+<textarea id="mensagem" placeholder= "deixe uma mensagem bonitinha! :D" name="mensagem"></textarea>
+
+
+    <button type="submit">Enviar</button>
+</form>
+   
+<script type="module">
+    
+    
+    
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+    import {getFirestore, collection, addDoc, serverTimestamp} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBWRBFP9b3-GLykfeV5L_RobA9S9ww_saY",
+      authDomain: "bd-teste-ed849.firebaseapp.com",
+      projectId: "bd-teste-ed849",
+      storageBucket: "bd-teste-ed849.appspot.com",
+      messagingSenderId: "771785860440",
+      appId: "1:771785860440:web:1051331551d8fab0b8312d",
+      measurementId: "G-NBNHRF4VR1"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    // Conecte ao Firestore
+    const db = getFirestore(app);
+
+
+
+ // Manipular o envio do formulário
+ document.getElementById('meuFormulario').addEventListener('submit', async function(event) {
+        event.preventDefault ();
+
+  // Capturar os dados do formulário
+  const nome = document.getElementById('nome').value;
+  const email = document.getElementById('email').value;
+  const idade = document.getElementById('idade').value;
+  const mensagem = document.getElementById('mensagem').value;
+
+  try {
+    // Enviar os dados para o Firestore
+    await addDoc(collection(db, 'contatos'), {
+      nome: nome,
+      email: email,
+      idade: idade,
+      mensagem: mensagem,
+      timestamp: serverTimestamp() // adiciona um carimbo de tempo
+    });
+    alert('Dados enviados com sucesso!');
+    document.getElementById('meuFormulario').reset(); // Limpa o formulário
+  } catch (error) {
+    console.error('Erro ao enviar os dados: ', error);
+  }
+});
+
+    
+  </script>
+
+
+
+
+  </script>
+
+
+<div id="resultado"></div>
+
+
+
+<script>
+    function VerificarMaioridade(nome, idade) 
+    { 
+        if (idade >=18){
+            return nome + ', você é de maior!'
+        }
+        else {
+            return nome + ', Você é de menor. Acesso bloqueado'
+        }
+    
+    }
+
+    function exibirResultado(mensagem)
+    {
+        document.getElementById('resultado').textContent = mensagem;
+    }
+    document.getElementById('meuFormulario').addEventListener('submit', function(event)
+    {
+    event.preventDefault();
+    const nome = document.getElementById('nome').value;
+    const idade = parseInt (document.getElementById('idade').value);
+    const mensagem = VerificarMaioridade(nome, idade); 
+    
+    exibirResultado(mensagem);
+
+    });
+
+</script>
+</body>
+</html>

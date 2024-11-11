@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela</title>
+</head>
+
+<style>
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+
+tr:nth-child(even) {
+  background-color: rgb(255, 141, 150);
+}
+
+th:nth-child(even),td:nth-child(even) {
+  background-color: rgb(255, 141, 150);
+}
+
+
+td, th {
+  border: 1px solid #b90047;
+  text-align: left;
+  padding: 8px;
+}
+
+
+</style>
+</head>
+<body>
+
+<h2>Tabelinha...(Criando tabela)</h2>
+
+
+<table id="corpoTabela">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Mensagem</th>
+            <th>Data</th>
+            </tr>
+</thead>
+
+
+
+<tbody></tbody>
+
+
+</table>
+
+<script>
+    let nome = "leandro"
+    let dados = ["Leandro", "Quezia", "Julio", "Tião", "Suelen", "carolzinhagamesodeio"]
+    document.getElementById('corpoTabela').getElementsByTagName('tbody')[0].innerHTML += `
+    <tr>
+        <td>${dados[0]}</td>
+        <td>${dados[1]}</td>
+        <td>${dados[2]}</td>
+        <td>${dados[3]}</td>
+        </tr>
+            
+    `
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    
+</body>
+</html>

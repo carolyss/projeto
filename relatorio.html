@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Usuários</title>
+</head>
+<body>
+    <h1> Relatório de Usuários </h1>
+
+  
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+        import {getFirestore, collection, getDocs, doc} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyBWRBFP9b3-GLykfeV5L_RobA9S9ww_saY",
+          authDomain: "bd-teste-ed849.firebaseapp.com",
+          projectId: "bd-teste-ed849",
+          storageBucket: "bd-teste-ed849.appspot.com",
+          messagingSenderId: "771785860440",
+          appId: "1:771785860440:web:1051331551d8fab0b8312d",
+          measurementId: "G-NBNHRF4VR1"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        //Initialize FireStore
+        const db = getFirestore(app);
+
+        //Exibir as coleções do FireStore no Console
+const querySnapshot = await getDocs(collection(db, "contatos"));
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
+});
+
+    </script>
+
+
+</body>
+</html>
