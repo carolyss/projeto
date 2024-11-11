@@ -1,0 +1,147 @@
+:root {
+    --cor-texto: #663399;
+    --cor-titulo-secao: #48005e;
+    --largura-borda-formulario: 8px;
+    --borda: 5px solid #410b41e1;
+    --fonte-título:  "Playfair Display", serif;
+
+}
+
+
+
+body {
+    font-family: arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffc7e9;
+    color: #333;
+    background-image:url(https://wallpaperaccess.com/full/3751233.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
+    min-height: 100%;
+    }
+
+
+
+h1, h2, h3 {
+    text-align: center;
+    color:var(--cor-titulo-secao);
+    font-family: var(--fonte-título)
+
+}
+
+
+
+p {
+    text-align: center;
+    color: var(--cor-texto)
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    border: 5px solid #410b41e1;
+    border-radius: 8px;
+
+}
+ form  {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 28px;
+    background-color: #ffffff;
+    border:var(--borda);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0. 1);
+ }
+
+ label {
+    display: block;
+   margin-bottom: 5px;
+   color: #0005b3;
+ }
+
+ input[type="text"],
+ input[type="email"],
+ textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px ;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+ }
+
+.nav-buttons {
+    text-align:  center;
+    margin: 20px 0;;
+}
+
+
+ .nav-buttons .button{
+   display: inline-block;
+   padding: 10px 20px;
+   margin: 5px;
+   background-color: rgb(255, 130, 238);
+   color: var(--cor-texto);
+   text-decoration: none;
+   border: 4px;
+ }
+
+
+.gatos-images {
+    text-align: center;
+    margin: 20px 0;
+    
+}
+
+
+.image{
+    display: inline-block;
+   padding: 10px 20px;
+   margin: 5px;
+
+   
+
+}
+
+button:hover {
+color: aqua;
+}
+
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgb(255, 216, 216);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    color: var(--cor-texto); font-family: var(--fonte-título);
+    
+
+}
+.rodape{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+header {
+    text-align: center;
+    padding: 1rem;
+    background: white;
+    max-width:100%;
+}
+
+
+[data-bs-theme="dark"]{
+    
+    color: #333;
+}
+
+
+
+
